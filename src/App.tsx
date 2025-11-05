@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Container from "./components/Layout/Container";
+import Header from "./components/Layout/Header";
+import StartPage from "./pages/StartPage";
+import GamePage from "./pages/GamePage";
+import ResultsPage from "./pages/ResultsPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+type Page = "start" | "game" | "results";
+
+const App: React.FC = () => {
+    const [page, setPage] = useState<Page>("start");
+
+    return (
+        <Container>
+            <Header onGoHome={() => setPage("start")} />
+            {page === "start" && <StartPage onStart={() => setPage("game")} />}
+            {page === "game" && <GamePage onFinish={() => setPage("results")} />}
+            {page === "results" && <ResultsPage onPlayAgain={() => setPage("start")} />}
+        </Container>
+    );
+};
 
 export default App;
