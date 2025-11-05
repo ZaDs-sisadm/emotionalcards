@@ -1,18 +1,13 @@
 import React from "react";
 import EmojiCard from "./EmojiCard";
-import { Card } from "../../hooks/useGame";
 
-interface Props {
-    cards: Card[];
-    onCardClick: (id: number) => void;
-    cols?: number;
-}
+interface Props { items: (null | string)[]; }
 
-const Grid: React.FC<Props> = ({ cards, onCardClick, cols = 4 }) => {
+const Grid: React.FC<Props> = ({ items }) => {
     return (
-        <div className="grid" style={{ ["--cols" as any]: cols } as React.CSSProperties}>
-            {cards.map((c) => (
-                <EmojiCard key={c.id} card={c} onClick={onCardClick} />
+        <div className="grid" style={{ "--cols": 4 } as React.CSSProperties}>
+            {items.map((it, i) => (
+                <EmojiCard key={i} id={i} emoji={it ?? "🐶"} />
             ))}
         </div>
     );

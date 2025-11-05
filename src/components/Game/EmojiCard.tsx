@@ -1,22 +1,19 @@
 import React from "react";
-import { Card } from "../../hooks/useGame";
 
 interface Props {
-    card: Card;
-    onClick: (id: number) => void;
+    id: number;
+    revealed?: boolean;
+    matched?: boolean;
+    onClick?: (id: number) => void;
+    emoji?: string; // optional placeholder
 }
 
-const EmojiCard: React.FC<Props> = ({ card, onClick }) => {
+const EmojiCard: React.FC<Props> = ({ id, revealed = false, matched = false, onClick, emoji = "😊" }) => {
+    const className = `emoji-card ${revealed ? "revealed" : ""} ${matched ? "matched" : ""}`;
     return (
-        <div
-            className={`emoji-card ${card.revealed ? "revealed" : ""} ${card.matched ? "matched" : ""}`}
-            onClick={() => onClick(card.id)}
-            role="button"
-            aria-pressed={card.revealed}
-            aria-label={card.matched ? "matched card" : "card"}
-        >
+        <div className={className} onClick={() => onClick?.(id)} role="button" aria-pressed={revealed}>
             <div className="card-face front">?</div>
-            <div className="card-face back">{card.emoji}</div>
+            <div className="card-face back">{emoji}</div>
         </div>
     );
 };

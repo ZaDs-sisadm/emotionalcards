@@ -1,35 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
+import Button from "../components/UI/Button";
+import Logo from "../components/UI/Logo";
 
-interface Props {
-    onStart: (level: "easy" | "medium" | "hard") => void;
-}
+interface Props { onStart: () => void; }
 
 const StartPage: React.FC<Props> = ({ onStart }) => {
-    const [level, setLevel] = useState<"easy" | "medium" | "hard">("easy");
-
     return (
         <div className="page start-page">
+            <Logo />
             <h1>Емоційні пари</h1>
-            <p>Знайди однакові емодзі за мінімум ходів.</p>
-
-            <div>
-                <label>
-                    <input type="radio" name="level" value="easy" checked={level === "easy"} onChange={() => setLevel("easy")} />
-                    Легкий (4 пар)
-                </label>
-                <label style={{ marginLeft: 12 }}>
-                    <input type="radio" name="level" value="medium" checked={level === "medium"} onChange={() => setLevel("medium")} />
-                    Середній (8 пар)
-                </label>
-                <label style={{ marginLeft: 12 }}>
-                    <input type="radio" name="level" value="hard" checked={level === "hard"} onChange={() => setLevel("hard")} />
-                    Важкий (12 пар)
-                </label>
+            <p>Знайди однакові емодзі за мінімум ходів. Обери складність та починай гру.</p>
+            <div className="level-controls">
+                <label>Рівень:</label>
+                <select aria-label="level-select">
+                    <option>Легкий (4x2)</option>
+                    <option>Середній (6x4)</option>
+                    <option>Важкий (8x6)</option>
+                </select>
             </div>
-
-            <div style={{ marginTop: 16 }}>
-                <button onClick={() => onStart(level)} className="btn-primary">Почати</button>
-            </div>
+            <Button onClick={onStart}>Почати гру</Button>
         </div>
     );
 };

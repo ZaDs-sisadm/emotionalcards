@@ -1,56 +1,23 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useGame } from "../hooks/useGame";
-import { useTimer } from "../hooks/useTimer";
-import { useResults } from "../hooks/useResults";
+import React from "react";
 import Grid from "../components/Game/Grid";
+import TimerPlaceholder from "../components/Shared/TimerPlaceholder";
 import MovesPlaceholder from "../components/Shared/MovesPlaceholder";
 
-interface Props {
-    onFinish: () => void;
-    initialLevel?: "easy" | "medium" | "hard";
-}
+interface Props { onFinish: () => void; }
 
-const GamePage: React.FC<Props> = ({ onFinish, initialLevel = "easy" }) => {
-    const [level] = useState(initialLevel);
-    const { cards, moves, openCard, reset, finished, busy, pairsCount } = useGame(level);
-    const { seconds, reset: resetTimer } = useTimer(!finished && moves > 0); // start timer on first move
-    const { save } = useResults();
-    const cols = useMemo(() => (level === "easy" ? 4 : level === "medium" ? 4 : 6), [level]);
+const GamePage: React.FC<Props> = ({ onFinish }) => {
 
-    useEffect(() => {
-        if (finished) {
-            save({
-                moves,
-                time: seconds,
-                level,
-                date: new Date().toISOString(),
-            });
-            // небольшая пауза перед вызовом onFinish для показа результату
-            const t = setTimeout(() => onFinish(), 500);
-            return () => clearTimeout(t);
-        }
-    }, [finished, moves, seconds, level, save, onFinish]);
-
-    const handleReset = () => {
-        reset();
-        resetTimer();
-    };
+    const placeholders = new Array(12).fill(null);
 
     return (
         <div className="page game-page">
             <div className="game-top">
-                <div>
-                    <div>Час</div>
-                    <div>{String(Math.floor(seconds / 60)).padStart(2, "0")}:{String(seconds % 60).padStart(2, "0")}</div>
-                </div>
-                <MovesPlaceholder value={moves} />
-                <div>Пари: {pairsCount}</div>
+                <TimerPlaceholder />
+                <MovesPlaceholder />
             </div>
-
-            <Grid cards={cards} onCardClick={(id) => { if (!busy) openCard(id); }} cols={cols} />
-
-            <div className="game-controls" style={{ marginTop: 16 }}>
-                <button onClick={handleReset} className="btn-secondary">Перезапустити</button>
+            <Grid items={placeholders} />
+            <div className="game-controls">
+                <button onClick={onFinish} className="btn-secondary">Закінчити (placeholder)</button>
             </div>
         </div>
     );
