@@ -47,29 +47,3 @@ npm install
 npm run dev або npm start (залежно від шаблону)
 
 Відкрийте http://localhost:3000 (або адресу, яку виведе збірник
-
-#Структура проекту
-
-src/
-├─ components/
-│  ├─ Game/
-│  │  ├─ EmojiCard.tsx
-│  │  └─ Grid.tsx
-│  ├─ Layout/
-│  │  └─ Container.tsx
-│  ├─ Shared/
-│  │  ├─ TimerPlaceholder.tsx
-│  │  └─ MovesPlaceholder.tsx
-│  └─ UI/
-│     ├─ Button.tsx
-│     └─ Logo.tsx
-├─ pages/
-│  ├─ StartPage.tsx
-│  ├─ GamePage.tsx
-│  └─ ResultsPage.tsx
-├─ styles/
-│  ├─ variables.css
-│  └─ global.css
-├─ App.tsx
-└─ index.tsx
-
