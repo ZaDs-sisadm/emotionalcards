@@ -1,46 +1,75 @@
-# Getting Started with Create React App
+# Що включено
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Сторінки: StartPage, GamePage, ResultsPage
 
-## Available Scripts
+# Компоненти:
 
-In the project directory, you can run:
+UI: Button, Logo, IconPlaceholder
 
-### `npm start`
+Layout: Container, Header
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Game: EmojiCard, Grid
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Shared: TimerPlaceholder, MovesPlaceholder, TextPlaceholder
 
-### `npm test`
+Базові CSS: variables.css, global.css
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Типи: types.d.ts
 
-### `npm run build`
+Налаштування для швидкого запуску з Vite / CRA (без логіки)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Що відсутнє (важливо) 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Перевірка пар карток (matching logic)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ігрова логіка відкривання/закривання карток і визначення знайдених пар
 
-### `npm run eject`
+Таймер/лічильник часу, що відраховує час гри
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Лічильник ходів (moves counter) з реальною логікою
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Збереження і відображення результатів (локальне або на сервері)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Роутинг між сторінками (у проєкті перемикання сторінок реалізовано через App state, без react-router)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Перевірки доступності та розширена валідація даних
 
-## Learn More
+# Як запустити (швидко)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Клонуйте репозиторій
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Встановіть залежності:
+
+npm install
+
+Запустіть dev-сервер:
+
+npm run dev або npm start (залежно від шаблону)
+
+Відкрийте http://localhost:3000 (або адресу, яку виведе збірник
+
+#Структура проекту
+
+src/
+├─ components/
+│  ├─ Game/
+│  │  ├─ EmojiCard.tsx
+│  │  └─ Grid.tsx
+│  ├─ Layout/
+│  │  └─ Container.tsx
+│  ├─ Shared/
+│  │  ├─ TimerPlaceholder.tsx
+│  │  └─ MovesPlaceholder.tsx
+│  └─ UI/
+│     ├─ Button.tsx
+│     └─ Logo.tsx
+├─ pages/
+│  ├─ StartPage.tsx
+│  ├─ GamePage.tsx
+│  └─ ResultsPage.tsx
+├─ styles/
+│  ├─ variables.css
+│  └─ global.css
+├─ App.tsx
+└─ index.tsx
+
