@@ -44,4 +44,4 @@ useResults збереження записів у localStorage; якщо пот�
 
 Запустити dev-сервер: npm run dev або npm start
 
-Відкрити в браузері: http://localhost:3000 (або адресу, яку видасть збірник)
+Відкрити в браузері: http://localhost:3000 
