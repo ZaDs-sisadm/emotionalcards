@@ -29,7 +29,7 @@ UI-компоненти: Button, Logo, IconPlaceholder, Container, Header, Emoji
 
 Клонувати репозиторій:
 
-git clone <посиланнянарепо>
+git clone https://github.com/ZaDs-sisadm/emotionalcards/lab2
 
 Інсталювати залежності:
 
