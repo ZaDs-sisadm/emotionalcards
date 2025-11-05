@@ -41,7 +41,7 @@ npm run dev або npm start
 
 Відкрити в браузері:
 
-http://localhost:3000 (або адресу, яку виведе збірник)
+http://localhost:3000 
 
 Корисні команди:
 
