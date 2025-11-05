@@ -38,7 +38,7 @@ useResults збереження записів у localStorage; якщо пот�
 
 # Запуск локально
 
-лонувати репозиторій: git clone <посиланнянарепо>
+лонувати репозиторій: git clone https://github.com/ZaDs-sisadm/emotionalcards/blob/lab3
 
 Встановити залежності: npm install
 
