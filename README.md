@@ -46,4 +46,4 @@ npm install
 
 npm run dev або npm start (залежно від шаблону)
 
-Відкрийте http://localhost:3000 (або адресу, яку виведе збірник
+Відкрийте http://localhost:3000 
