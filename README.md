@@ -1,47 +1,50 @@
 # Основні можливості (реалізовано)
 
+Чисті компоненти і сторінки: StartPage, GamePage, ResultsPage, UserPage.
+
 Ігрова логіка в хуках:
 
-useGame — генерація пар, відкриття карток, перевірка пар, moves, reset.
+useGame — генерація карток, відкриття/матчинг, moves, reset.
 
-useTimer — секундомер з запуском/скидання.
+useTimer — секундомір (start/reset).
 
-useResults — історія/збереження результатів у localStorage.
+useResults / ResultsContext — збереження результатів в localStorage; per-user результати через ResultsContext.
 
-Налаштування гри з формою (react-hook-form + yup):
+Налаштування гри:
 
-рівень (easy / medium / hard),
+SettingsContext + SettingsForm (react-hook-form + yup); синхронізація з localStorage.
 
-швидкість (slow / normal / fast),
+Параметри: level (easy|medium|hard), speed (slow|normal|fast), sound (on/off).
 
-звук (on/off).
+Модальне вікно завершення гри:
 
-Налаштування зберігаються в SettingsContext і синхронізуються з localStorage.
+FinishModal реалізовано через Portal; показує результат, дозволяє повторити або перейти до наступного туру.
 
-Модальне вікно завершення гри (FinishModal) реалізовано через Portal; показує результат і дозволяє:
+Роутинг:
 
-перезапустити поточний тур,
+/ — StartPage
 
-перейти до наступного рівня.
+/user/:userId — UserPage
 
-Перемикання сторінок через App state: StartPage, GamePage, ResultsPage (без react-router).
+/user/:userId/game — GamePage
 
-Базові UI-компоненти і стилі (variables.css, global.css).
+/user/:userId/results — ResultsPage
 
-# Що не реалізовано
+Стилізація: Tailwind CSS (директиви в src/styles/global.css).
 
-Немає бекенду для збереження результатів (усе локально в localStorage).
-
-UI — мінімальний, без повної доступності/міжнародних перекладів.
-
-useResults збереження записів у localStorage; якщо потрібно — можна винести results у Context Provider для глобального доступу.
-
+Легка система state management: SettingsContext + ResultsContext (контекстний підхід).
 # Запуск локально
 
-лонувати репозиторій: git clone <посиланнянарепо>
+Клонувати репозиторій: git clone https://github.com/ZaDs-sisadm/emotionalcards/tree/lab4
+
+Перейти в папку: cd lab4
 
 Встановити залежності: npm install
 
-Запустити dev-сервер: npm run dev або npm start
+Встановити додаткові пакети (якщо ще не встановлені): npm install react-router-dom react-hook-form yup @hookform/resolvers
 
-Відкрити в браузері: http://localhost:3000 (або адресу, яку видасть збірник)
+Налаштувати Tailwind і постпроцесори (якщо ще не зроблено): npm install -D tailwindcss postcss autoprefixer npx tailwindcss init -p
+
+Перезапустити dev-сервер: npm run dev або npm start
+
+Відкрити в браузері: http://localhost:3000

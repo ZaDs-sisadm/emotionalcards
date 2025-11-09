@@ -1,22 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { SettingsProvider } from "./context/SettingsContext";
+import { ResultsProvider } from "./context/ResultsContext";
 import Container from "./components/Layout/Container";
 import StartPage from "./pages/StartPage";
 import GamePage from "./pages/GamePage";
 import ResultsPage from "./pages/ResultsPage";
+import UserPage from "./pages/UserPage";
 
-export default function App() {
-    const [page, setPage] = useState<"start"|"game"|"results">("start");
+const App: React.FC = () => {
     return (
         <SettingsProvider>
-            <Container>
-                {page === "start" && <StartPage onStart={() => setPage("game")} />}
-                {page === "game" && <GamePage onFinish={() => setPage("results")} />}
-                {page === "results" && <ResultsPage onPlayAgain={() => setPage("start")} />}
-            </Container>
+            <ResultsProvider>
+                <BrowserRouter>
+                    <Container>
+                        <Routes>
+                            <Route path="/" element={<StartPage />} />
+                            <Route path="/user/:userId" element={<UserPage />} />
+                            <Route path="/user/:userId/game" element={<GamePage />} />
+                            <Route path="/user/:userId/results" element={<ResultsPage />} />
+                            <Route path="*" element={<Navigate to="/" replace />} />
+                        </Routes>
+                    </Container>
+                </BrowserRouter>
+            </ResultsProvider>
         </SettingsProvider>
     );
-}
-
+};
 
 export default App;
