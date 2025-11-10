@@ -1,43 +1,43 @@
 # Основні можливості (реалізовано)
 
-Чисті компоненти і сторінки: StartPage, GamePage, ResultsPage, UserPage.
+Стейт-менеджмент (Redux Toolkit)
+Додано Redux store з двома слайсами:
 
-Ігрова логіка в хуках:
+settingsSlice — зберігає рівень, швидкість, звук (синхронізується з localStorage).
 
-useGame — генерація карток, відкриття/матчинг, moves, reset.
+resultsSlice — зберігає результати по userId (також зберігається в localStorage).
 
-useTimer — секундомір (start/reset).
+Додано типізовані хуки: useAppSelector, useAppDispatch.
 
-useResults / ResultsContext — збереження результатів в localStorage; per-user результати через ResultsContext.
+SettingsForm
+Переписано для роботи з Redux:
 
-Налаштування гри:
+Читання налаштувань через useAppSelector.
 
-SettingsContext + SettingsForm (react-hook-form + yup); синхронізація з localStorage.
+Оновлення через dispatch(setSettings(...)).
 
-Параметри: level (easy|medium|hard), speed (slow|normal|fast), sound (on/off).
+Валідація через react-hook-form + yup.
 
-Модальне вікно завершення гри:
+GamePage
+Замість контексту використовуються налаштування з Redux.
 
-FinishModal реалізовано через Portal; показує результат, дозволяє повторити або перейти до наступного туру.
+Після завершення гри результат зберігається через dispatch(saveResult(...)).
 
-Роутинг:
+ResultsPage
+Результати читаються з Redux: results.byUser[userId].
 
-/ — StartPage
+Кнопка "Очистити" викликає dispatch(clearUserResults(...)).
 
-/user/:userId — UserPage
+Роутинг
+Залишився без змін: react-router-dom, динамічний userId.
 
-/user/:userId/game — GamePage
+Стилізація
 
-/user/:userId/results — ResultsPage
-
-Стилізація: Tailwind CSS (директиви в src/styles/global.css).
-
-Легка система state management: SettingsContext + ResultsContext (контекстний підхід).
 # Запуск локально
 
-Клонувати репозиторій: git clone https://github.com/ZaDs-sisadm/emotionalcards/tree/lab4
+Клонувати репозиторій: git clone https://github.com/ZaDs-sisadm/emotionalcards/tree/lab5
 
-Перейти в папку: cd lab4
+Перейти в папку: cd lab5
 
 Встановити залежності: npm install
 

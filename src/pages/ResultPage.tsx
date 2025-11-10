@@ -1,19 +1,22 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { useResultsContext } from "../context/ResultsContext";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { clearUserResults } from "../store/resultsSlice";
 
 const ResultsPage: React.FC = () => {
     const { userId } = useParams<{ userId: string }>();
-    const { getForUser, clearForUser } = useResultsContext();
-    const results = userId ? getForUser(userId) : [];
+    const dispatch = useAppDispatch();
+    const results = useAppSelector((s) => s.results.byUser[userId ?? ""] ?? []);
 
     return (
         <div className="max-w-3xl mx-auto p-6">
-            <header className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl font-semibold">Результати {userId ? `— ${userId}` : ""}</h2>
+            <header className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-semibold">Результати {userId}</h2>
                 <div className="flex gap-2">
-                    <Link to={userId ? `/user/${userId}/game` : "/"} className="px-3 py-2 bg-green-600 text-white rounded">Грати</Link>
-                    {userId && <button onClick={() => clearForUser(userId)} className="px-3 py-2 border rounded">Очистити</button>}
+                    <Link to={`/user/${userId}/game`} className="px-3 py-2 bg-green-600 text-white rounded">Грати</Link>
+                    <button onClick={() => dispatch(clearUserResults({ userId: userId ?? "" }))} className="px-3 py-2 border rounded">
+                        Очистити
+                    </button>
                 </div>
             </header>
 

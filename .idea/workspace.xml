@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b86f587-fe28-43db-a61c-eab5d36a9ee6" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/ResultsContext.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/UserPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/hooks.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/resultsSlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/settingsSlice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/SettingForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/SettingForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/GamePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/GamePage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/ResultPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResultPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/StartPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/StartPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +44,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="lab3" />
+        <entry key="$PROJECT_DIR$" value="lab4" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -84,7 +83,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "lab4",
+    "git-widget-placeholder": "lab5",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -137,7 +136,8 @@
       <workItem from="1762207586189" duration="627000" />
       <workItem from="1762292031916" duration="845000" />
       <workItem from="1762362845679" duration="8313000" />
-      <workItem from="1762723274533" duration="1009000" />
+      <workItem from="1762723274533" duration="1623000" />
+      <workItem from="1762810926737" duration="717000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <option name="closed" value="true" />
@@ -163,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762379235784</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update">
+      <option name="closed" value="true" />
+      <created>1762724314593</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1762724314593</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
